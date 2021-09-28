@@ -2,8 +2,9 @@ Shader "Custom/normal-mapping"
 {
     Properties
     {
-        _tex ("Texture", 2D) = "white" {}
-        _normal ("Normal", 2D) = "bump" {}
+        _tex ("Diffuse Texture", 2D) = "white" {}
+        _normal ("Bump Texture", 2D) = "bump" {}
+        _bumpRange ("Bump Amount", Range(0,10)) = 1
     }
 
     SubShader
@@ -13,6 +14,7 @@ Shader "Custom/normal-mapping"
 
         sampler2D _tex;
         sampler2D _normal;
+        half _bumpRange;
 
         struct Input
         {
@@ -23,7 +25,7 @@ Shader "Custom/normal-mapping"
         void surf(Input IN, inout SurfaceOutput o)
         {
             o.Albedo = tex2D(_tex, IN.uv_tex).rgb;
-            o.Normal = UnpackNormal(tex2D(_normal, IN.uv_normal));
+            o.Normal = UnpackNormal(tex2D(_normal, IN.uv_normal)) * float3(_bumpRange,_bumpRange,1);
         }
         
 		ENDCG
