@@ -2,30 +2,28 @@ Shader "Custom/texturing-sample"
 {
     Properties
     {
-        _myTex ("Texture 2D", 2D) = "white" {}
-        _myRange ("Range", Range(0,5)) = 1
+        _tex ("Texture", 2D) = "white" {}
     }
+
     SubShader
     {
         CGPROGRAM
-        
         #pragma surface surf Lambert
 
-        sampler2D _myTex;
-        half _myRange;
+        sampler2D _tex;
 
         struct Input
         {
-            float2 uv_myTex;
-            float3 worldRefl;
+            float2 uv_tex;
         };
 
-        void surf (Input IN, inout SurfaceOutput o)
+        void surf(Input IN, inout SurfaceOutput o)
         {
-            o.Albedo = (tex2D(_myTex, IN.uv_myTex) * _myRange).rgb;
+            o.Albedo = tex2D(_tex, IN.uv_tex).rgb;
         }
         
-        ENDCG
+		ENDCG
     }
-    FallBack "Diffuse"
+    
+    Fallback "Diffuse"
 }

@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: HelloShader
-  m_Shader: {fileID: 4800000, guid: 89fc4d1774ef6664895e882171db402f, type: 3}
+  m_Shader: {fileID: 4800000, guid: 66c74386b5af51b44bd4f6e2b77835d9, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -55,6 +55,10 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _tex:
+        m_Texture: {fileID: 2800000, guid: 685d2fab483e06e4993393b07b32f814, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     m_Floats:
     - _BumpScale: 1
     - _Cutoff: 0.5
@@ -69,6 +73,7 @@ Material:
     - _OcclusionStrength: 1
     - _Parallax: 0.02
     - _SmoothnessTextureChannel: 0
+    - _Specular: 1
     - _SpecularHighlights: 1
     - _SrcBlend: 1
     - _UVSec: 0
@@ -77,10 +82,12 @@ Material:
     - _emission: 1
     m_Colors:
     - _AmbientColor: {r: 1, g: 1, b: 1, a: 1}
-    - _Color: {r: 0.091, g: 0, b: 0.68275833, a: 1}
+    - _Color: {r: 1, g: 1, b: 1, a: 1}
+    - _Emission: {r: 0.1981132, g: 0.1981132, b: 0.1981132, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _colour: {r: 1, g: 1, b: 1, a: 1}
     - _emission: {r: 0.1981132, g: 0.032707363, b: 0.162962, a: 1}
+    - _myColor: {r: 1, g: 0, b: 0, a: 1}
     - _myColour: {r: 1, g: 0, b: 0, a: 1}
     - _normal: {r: 0.8207547, g: 0.5226504, b: 0.5226504, a: 1}
   m_BuildTextureStacks: []

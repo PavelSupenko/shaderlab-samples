@@ -2,9 +2,9 @@ Shader "Custom/Shader-for-blue-bunny"
 {
     Properties
     {
-        _colour ("Colour", Color) = (1,1,1,1)
-        _emission ("Emission", Color) = (0,0,0,1)
-        _normal ("Normal", Color) = (1,1,1,1)
+        _Color ("Color", Color) = (1,1,1,1)
+        _Emission ("Emission", Color) = (1,1,1,1)
+        _Specular ("Specular", float) = 0.1
     }
     
     SubShader
@@ -14,23 +14,22 @@ Shader "Custom/Shader-for-blue-bunny"
 
         struct Input
         {
-            float2 uvMainTex;
+            float2 uvMainTex;    
         };
 
-        fixed4 _colour;
-        fixed4 _emission;
-        fixed4 _normal;
+        fixed4 _Color;
+        fixed4 _Emission;
+        half _Specular;
 
-        void surf (Input IN, inout SurfaceOutput o)
+        void surf(Input IN, inout SurfaceOutput o)
         {
-            o.Albedo = _colour.rgb;
-            o.Emission = _emission;
-            o.Normal = _normal;
+            o.Albedo = _Color;
+            o.Emission = _Emission;
+            o.Specular = _Specular;
         }
-
+        
         ENDCG
-            
     }
-    
-    FallBack "Diffuse"
+
+    Fallback "Diffuse"
 }
